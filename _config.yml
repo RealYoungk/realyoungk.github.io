@@ -8,11 +8,18 @@ email: "ceo.youngandrich@gmail.com"
 baseurl: "/research"
 url: "https://realyoungk.github.io"
 
+# 테마
+remote_theme: sighingnow/jekyll-gitbook
+
 # 빌드 설정
 markdown: kramdown
-theme: minima
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
   - jekyll-seo-tag
 
 # 포스트 설정
@@ -27,9 +34,14 @@ defaults:
       layout: "post"
       author: "영진"
 
-# 페이지네이션
-paginate: 10
-paginate_path: "/page:num/"
+# TOC (목차)
+toc:
+  enabled: true
+  h_min: 1
+  h_max: 3
+
+# 코드 하이라이트
+syntax_highlighter_style: colorful
 
 # 제외 파일
 exclude:
