@@ -1,0 +1,52 @@
+# 사이트 기본 설정
+title: "기업 분석 노트"
+description: "한국/미국 기업들의 비즈니스 모델과 재무 분석"
+author: "영진"
+email: "moby@11c.kr"
+
+# URL 설정 (GitHub username으로 변경 필요)
+baseurl: "/research"
+url: "https://mobyceo.github.io"
+
+# 빌드 설정
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 포스트 설정
+permalink: /:categories/:year/:month/:day/:title/
+
+# 카테고리
+collections:
+  korea:
+    output: true
+    permalink: /korea/:path/
+  usa:
+    output: true
+    permalink: /usa/:path/
+
+# 기본값
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "영진"
+
+# 페이지네이션
+paginate: 10
+paginate_path: "/page:num/"
+
+# 제외 파일
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# 한국어 설정
+lang: ko
