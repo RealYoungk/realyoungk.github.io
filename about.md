@@ -18,4 +18,4 @@ permalink: /about/
 
 ## 연락처
 
-- Email: moby@11c.kr
+- Email: ceo.youngandrich@gmail.com

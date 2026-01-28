@@ -1,8 +1,8 @@
 # 사이트 기본 설정
 title: "기업 분석 노트"
-description: "한국/미국 기업들의 비즈니스 모델과 재무 분석"
+description: "기업들의 비즈니스 모델과 재무 분석"
 author: "영진"
-email: "moby@11c.kr"
+email: "ceo.youngandrich@gmail.com"
 
 # URL 설정 (GitHub username으로 변경 필요)
 baseurl: "/research"
@@ -15,23 +15,62 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# 포스트 설정
-permalink: /:categories/:year/:month/:day/:title/
-
-# 카테고리
+# 카테고리 (시장별) — _posts 대신 컬렉션 사용 (날짜 없는 파일명)
 collections:
-  korea:
+  kospi:
     output: true
-    permalink: /korea/:path/
-  usa:
+    permalink: /kospi/:title/
+  kosdaq:
     output: true
-    permalink: /usa/:path/
+    permalink: /kosdaq/:title/
+  nasdaq:
+    output: true
+    permalink: /nasdaq/:title/
+  nyse:
+    output: true
+    permalink: /nyse/:title/
+  hkex:
+    output: true
+    permalink: /hkex/:title/
+  general:
+    output: true
+    permalink: /general/:title/
 
 # 기본값
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: "kospi"
+    values:
+      layout: "post"
+      author: "영진"
+  - scope:
+      path: ""
+      type: "kosdaq"
+    values:
+      layout: "post"
+      author: "영진"
+  - scope:
+      path: ""
+      type: "nasdaq"
+    values:
+      layout: "post"
+      author: "영진"
+  - scope:
+      path: ""
+      type: "nyse"
+    values:
+      layout: "post"
+      author: "영진"
+  - scope:
+      path: ""
+      type: "hkex"
+    values:
+      layout: "post"
+      author: "영진"
+  - scope:
+      path: ""
+      type: "general"
     values:
       layout: "post"
       author: "영진"
