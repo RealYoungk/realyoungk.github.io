@@ -22,6 +22,20 @@ import 'components/post_list.dart';
 // This file is generated automatically by Jaspr, do not remove or edit.
 import 'main.server.options.dart';
 
+class ScrollMarginExtension extends ThemeExtension<ScrollMarginExtension> {
+  const ScrollMarginExtension();
+
+  @override
+  ThemeExtension<ScrollMarginExtension> copyWith() => this;
+
+  @override
+  List<StyleRule> buildStyles(ContentTheme theme) => [
+    css('[anchor]').styles(
+      raw: {'scroll-margin-top': '5rem'},
+    ),
+  ];
+}
+
 void main() {
   // Initializes the server environment with the generated default options.
   Jaspr.initializeApp(
@@ -87,6 +101,7 @@ void main() {
         ),
       ],
       theme: ContentTheme(
+        extensions: [const ScrollMarginExtension()],
         // Customizes the default theme colors.
         primary: ThemeColor(ThemeColors.blue.$500, dark: ThemeColors.blue.$300),
         background: ThemeColor(ThemeColors.slate.$50, dark: ThemeColors.zinc.$950),
