@@ -73,7 +73,7 @@ void main() {
               SidebarGroup(
                 title: '분석 글',
                 links: [
-                  SidebarLink(text: "큐라클", href: '/research/posts/큐라클'),
+                  SidebarLink(text: "큐라클", href: '/research/posts/365270'),
                 ],
               ),
               SidebarGroup(
