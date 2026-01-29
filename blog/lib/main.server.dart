@@ -17,6 +17,7 @@ import 'package:jaspr_content/components/theme_toggle.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 import 'package:jaspr_content/theme.dart';
 
+import 'components/company_info.dart';
 import 'components/post_list.dart';
 import 'extensions/korean_heading_id_extension.dart';
 
@@ -69,6 +70,7 @@ void main() {
         CodeBlock(),
         Image(zoom: true),
         CustomComponent(pattern: 'PostList', builder: (_, _, _) => const PostList()),
+        CustomComponent(pattern: 'CompanyInfo', builder: (_, _, _) => const CompanyInfo()),
       ],
       layouts: [
         // Out-of-the-box layout for documentation sites.

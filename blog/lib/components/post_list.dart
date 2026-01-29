@@ -13,8 +13,8 @@ class PostList extends StatelessComponent {
         .where((page) => page.url.startsWith('/posts/'))
         .toList()
       ..sort((a, b) {
-        final dateA = a.data.page['date']?.toString() ?? '';
-        final dateB = b.data.page['date']?.toString() ?? '';
+        final dateA = a.data.page['updatedAt']?.toString() ?? a.data.page['date']?.toString() ?? '';
+        final dateB = b.data.page['updatedAt']?.toString() ?? b.data.page['date']?.toString() ?? '';
         return dateB.compareTo(dateA);
       });
 
@@ -37,12 +37,17 @@ class PostList extends StatelessComponent {
     final market = pageData['market'] as String? ?? '';
     final sector = pageData['sector'] as String? ?? '';
     final date = pageData['date']?.toString() ?? '';
+    final updatedAt = pageData['updatedAt']?.toString() ?? '';
     final tags = pageData['tags'] as List<dynamic>? ?? [];
 
     return a(href: post.url, classes: 'post-item', [
       div(classes: 'post-header', [
         h3([Component.text(title)]),
-        span(classes: 'post-date', [Component.text(date)]),
+        div(classes: 'post-dates', [
+          span(classes: 'post-date', [Component.text(date)]),
+          if (updatedAt.isNotEmpty && updatedAt != date)
+            span(classes: 'post-updated', [Component.text('(수정: $updatedAt)')]),
+        ]),
       ]),
       if (description.isNotEmpty)
         p(classes: 'post-description', [Component.text(description)]),
@@ -88,9 +93,19 @@ class PostList extends StatelessComponent {
         ),
         css('h3').styles(margin: Margin.zero, fontSize: 1.2.rem),
       ]),
+      css('.post-dates').styles(
+        display: Display.flex,
+        raw: {'gap': '0.5rem'},
+        alignItems: AlignItems.baseline,
+      ),
       css('.post-date').styles(
         fontSize: 0.85.rem,
         opacity: 0.6,
+        whiteSpace: WhiteSpace.noWrap,
+      ),
+      css('.post-updated').styles(
+        fontSize: 0.75.rem,
+        opacity: 0.5,
         whiteSpace: WhiteSpace.noWrap,
       ),
       css('.post-description').styles(
