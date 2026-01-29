@@ -18,6 +18,7 @@ import 'package:jaspr_content/jaspr_content.dart';
 import 'package:jaspr_content/theme.dart';
 
 import 'components/post_list.dart';
+import 'extensions/korean_heading_id_extension.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
 import 'main.server.options.dart';
@@ -56,6 +57,8 @@ void main() {
         MarkdownParser(),
       ],
       extensions: [
+        // Fixes heading IDs for Korean text (must be first!)
+        KoreanHeadingIdExtension(),
         // Adds heading anchors to each heading.
         HeadingAnchorsExtension(),
         // Generates a table of contents for each page.
