@@ -96,6 +96,12 @@ void main() {
                 ],
               ),
               SidebarGroup(
+                title: '시장분석',
+                links: [
+                  SidebarLink(text: "DKD 치료제 시장", href: '/posts/dkd-market'),
+                ],
+              ),
+              SidebarGroup(
                 title: '기타',
                 links: [
                   SidebarLink(text: "소개", href: '/about'),
